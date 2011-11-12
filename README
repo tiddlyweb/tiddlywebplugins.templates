@@ -13,9 +13,3 @@ for the template as a pkg_resource).
 
 This searching may not work for all packaging systems. This has
 been tested with pip.
-
-For more information on TiddlyWeb see http://tiddlyweb.com
-
-This code is licensed under the same terms as TiddlyWeb itself.
-
-Copyright 2009 Chris Dent.

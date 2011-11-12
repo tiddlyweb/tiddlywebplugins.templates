@@ -17,5 +17,6 @@ setup(
         platforms = 'Posix; MacOS X; Windows',
         install_requires = ['setuptools', 'Jinja2'],
         include_package_data = True,
-        zip_safe=False,
+        zip_safe = False,
+        license = 'BSD'
         )
