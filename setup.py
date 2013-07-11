@@ -2,7 +2,7 @@
 import os
 from setuptools import setup, find_packages
 
-VERSION = '0.9.4'
+VERSION = '0.9.5'
 
 setup(
         namespace_packages = ['tiddlywebplugins'],
@@ -16,7 +16,7 @@ setup(
         author_email = 'cdent@peermore.com',
         platforms = 'Posix; MacOS X; Windows',
         install_requires = ['setuptools',
-            'tiddlwyeb>=1.4.13',
+            'tiddlyweb>=1.4.13',
             'Jinja2'],
         include_package_data = True,
         zip_safe = False,
