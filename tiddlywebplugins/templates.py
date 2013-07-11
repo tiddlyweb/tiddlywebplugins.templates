@@ -22,6 +22,7 @@ import urllib
 
 from jinja2 import (Environment, ChoiceLoader, FileSystemLoader,
         PackageLoader)
+from tiddlyweb.model.tiddler import timestring_to_datetime
 from tiddlyweb.web.util import http_date_from_timestamp
 
 TEMPLATE_ENV = None
@@ -33,8 +34,14 @@ def uri(name):
 
 
 def format_modified(modified_string):
-    """Translate a tiddlywiki modified_string into a http date."""
+    """Translate a tiddler modified or created string into an http date."""
     return http_date_from_timestamp(modified_string)
+
+
+def rfc3339(modified_string):
+    """Translate a tiddler modified or created string into a rfc3339 date."""
+    datetime_object = timestring_to_datetime(modified_string)
+    return datetime_object.isoformat('T') + 'Z'
 
 
 def get_template(environ, template_name):
@@ -59,4 +66,5 @@ def get_template(environ, template_name):
             TEMPLATE_ENV = Environment(loader=FileSystemLoader(template_path))
         TEMPLATE_ENV.filters['uri'] = uri
         TEMPLATE_ENV.filters['format_modified'] = format_modified
+        TEMPLATE_ENV.filters['rfc3339'] = rfc3339
     return TEMPLATE_ENV.get_template(template_name)
