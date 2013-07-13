@@ -39,7 +39,10 @@ def format_modified(modified_string):
 
 
 def rfc3339(modified_string):
-    """Translate a tiddler modified or created string into a rfc3339 date."""
+    """
+    Translate a tiddler modified or created string into a RFC 3339 date string,
+    e.g. 2013-07-11T16:54:01Z
+    """
     datetime_object = timestring_to_datetime(modified_string)
     return datetime_object.isoformat('T') + 'Z'
 
