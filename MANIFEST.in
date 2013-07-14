@@ -1,2 +1,2 @@
 recursive-include tiddlywebplugins/templates *
-include README Makefile COPYRIGHT
+include README Makefile LICENSE

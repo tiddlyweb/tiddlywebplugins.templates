@@ -2,7 +2,7 @@
 import os
 from setuptools import setup, find_packages
 
-VERSION = '0.9.5'
+VERSION = '0.9.6'
 
 setup(
         namespace_packages = ['tiddlywebplugins'],
@@ -17,7 +17,11 @@ setup(
         platforms = 'Posix; MacOS X; Windows',
         install_requires = ['setuptools',
             'tiddlyweb>=1.4.13',
-            'Jinja2'],
+            'Jinja2'
+        ],
+        extras_require = {
+            'testing': ['pytest'],
+        },
         include_package_data = True,
         zip_safe = False,
         license = 'BSD'
