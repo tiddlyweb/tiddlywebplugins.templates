@@ -2,13 +2,13 @@
 Test the filters added to the jinja loader.
 """
 
-import urllib
+from tiddlyweb.fixups import unquote
 from tiddlywebplugins.templates import uri, format_modified, rfc3339
 
 
 def test_uri():
     encoded_name = 'aaa%25%E3%81%86%E3%81%8F%E3%81%99'
-    name = urllib.unquote(encoded_name).decode('utf-8')
+    name = unquote(encoded_name)
 
     assert uri(name) == encoded_name
 

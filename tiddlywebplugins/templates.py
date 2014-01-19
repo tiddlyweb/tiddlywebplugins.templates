@@ -18,19 +18,20 @@ TemplateNotFound exception is raised, replicating the standard
 jinja behavior.
 """
 import os
-import urllib
 
 from jinja2 import (Environment, ChoiceLoader, FileSystemLoader,
         PackageLoader)
 from tiddlyweb.model.tiddler import timestring_to_datetime
 from tiddlyweb.web.util import http_date_from_timestamp
+from tiddlyweb.fixups import quote
+
 
 TEMPLATE_ENV = None
 
 
 def uri(name):
     """URI escape a name."""
-    return urllib.quote(name.encode('utf-8'), safe='')
+    return quote(name.encode('utf-8'), safe='')
 
 
 def format_modified(modified_string):
